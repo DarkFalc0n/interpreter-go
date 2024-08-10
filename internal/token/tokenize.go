@@ -12,7 +12,5 @@ func Tokenize(fileContents []byte) {
 				TokenList = append(TokenList, *NewToken(RIGHT_PAREN, "null"))
 			}
 		}
-	} else {
-		TokenList = append(TokenList, *NewToken(EOF, "null"))
 	}
 }
