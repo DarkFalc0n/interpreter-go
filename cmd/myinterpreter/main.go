@@ -30,9 +30,12 @@ func main() {
 		os.Exit(1)
 	}	
 
-	token.Tokenize(fileContents)
-	token.TokenList = append(token.TokenList, *token.NewToken(token.EOF, "null"))
+	var linesOfCode int = token.Tokenize(fileContents)
+	token.TokenList = append(token.TokenList, *token.NewToken(token.EOF, "", "null", linesOfCode))
 	for _, t := range token.TokenList {
 		t.Print();
+	}
+	if token.HasError {
+		os.Exit(65)
 	}
 }

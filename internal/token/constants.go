@@ -12,20 +12,7 @@ var TokenNames = []string {
 	"SEMICOLON",
 	"STAR",
 	"EOF",
-}
-
-var TokenLexemes = []string {
-	"(",
-	")",
-	"{",
-	"}",
-	",",
-	".",
-	"-",
-	"+",
-	";",
-	"*",
-	"",
+	"INVALID",
 }
 
 const (
@@ -40,4 +27,5 @@ const (
 	SEMICOLON
 	STAR
 	EOF
+	INVALID
 )
