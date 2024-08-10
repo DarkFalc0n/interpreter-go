@@ -1,8 +1,8 @@
 package token
 
 import (
-	"errors"
 	"fmt"
+	"os"
 )
 
 type Token struct {
@@ -23,9 +23,8 @@ func NewToken(tokenType int, lexeme string, literal string, line int) *Token{
 
 func (t *Token) Print() {
 	if t.tokenType == INVALID {
-		err := errors.New("[line " + fmt.Sprint(t.line) + "] Error: Invalid character: " + t.lexeme)
 		HasError = true
-		fmt.Println(err)
+		fmt.Fprintf(os.Stderr, "[line " + fmt.Sprint(t.line) + "] Error: Invalid character: " + t.lexeme + "\n")
 		return
 	}
 	fmt.Println(TokenNames[t.tokenType] + " " + t.lexeme + " " + t.literal)
