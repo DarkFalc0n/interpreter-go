@@ -1,5 +1,7 @@
 package token
 
+import "fmt"
+
 type Token struct {
 	tokenType int
 	literal string
@@ -13,5 +15,5 @@ func NewToken(tokenType int, literal string) *Token{
 }
 
 func (t *Token) Print() {
-	println(TokenNames[t.tokenType] + " " + TokenLexemes[t.tokenType] + " " + t.literal)
+	fmt.Println(TokenNames[t.tokenType] + " " + TokenLexemes[t.tokenType] + " " + t.literal)
 }
