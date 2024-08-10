@@ -14,6 +14,18 @@ func Tokenize(fileContents []byte) {
 				TokenList = append(TokenList, *NewToken(LEFT_BRACE, "null"))
 			case '}':
 				TokenList = append(TokenList, *NewToken(RIGHT_BRACE, "null"))
+				case ',':
+				TokenList = append(TokenList, *NewToken(COMMA, "null"))
+			case '.':
+				TokenList = append(TokenList, *NewToken(DOT, "null"))
+			case '-':
+				TokenList = append(TokenList, *NewToken(MINUS, "null"))
+			case '+':
+				TokenList = append(TokenList, *NewToken(PLUS, "null"))
+			case ';':
+				TokenList = append(TokenList, *NewToken(SEMICOLON, "null"))
+			case '*':
+				TokenList = append(TokenList, *NewToken(STAR, "null"))
 			}
 		}
 	}

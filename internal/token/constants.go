@@ -5,6 +5,12 @@ var TokenNames = []string {
 	"RIGHT_PAREN",
 	"LEFT_BRACE",
 	"RIGHT_BRACE",
+	"COMMA",
+	"DOT",
+	"MINUS",
+	"PLUS",
+	"SEMICOLON",
+	"STAR",
 	"EOF",
 }
 
@@ -13,6 +19,12 @@ var TokenLexemes = []string {
 	")",
 	"{",
 	"}",
+	",",
+	".",
+	"-",
+	"+",
+	";",
+	"*",
 	"",
 }
 
@@ -21,5 +33,11 @@ const (
 	RIGHT_PAREN
 	LEFT_BRACE
 	RIGHT_BRACE
+	COMMA
+	DOT
+	MINUS
+	PLUS
+	SEMICOLON
+	STAR
 	EOF
 )
