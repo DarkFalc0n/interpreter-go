@@ -24,7 +24,7 @@ func NewToken(tokenType int, lexeme string, literal string, line int) *Token{
 func (t *Token) Print() {
 	if t.tokenType == INVALID {
 		HasError = true
-		fmt.Fprintf(os.Stderr, "[line " + fmt.Sprint(t.line) + "] Error: Unexpected character: " + t.lexeme + "\n")
+		fmt.Fprintln(os.Stderr, "[line " + fmt.Sprint(t.line) + "] Error: Unexpected character: " + t.lexeme)
 		return
 	}
 	fmt.Println(TokenNames[t.tokenType] + " " + t.lexeme + " " + t.literal)
