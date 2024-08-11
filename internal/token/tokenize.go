@@ -63,6 +63,9 @@ func Tokenize(fileContents []byte) int{
 					for fileContents[index] != '\n' && index < len(fileContents) - 1 {
 						index++
 					}
+					if fileContents[index] == '\n' {
+						line++
+					}
 				} else {
 					TokenList = append(TokenList, *NewToken(SLASH, string(b), "null", line))
 				}
