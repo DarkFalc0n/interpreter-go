@@ -11,6 +11,8 @@ var TokenNames = []string {
 	"PLUS",
 	"SEMICOLON",
 	"STAR",
+	"EQUAL",
+	"EQUAL_EQUAL",
 	"EOF",
 	"INVALID",
 }
@@ -26,6 +28,8 @@ const (
 	PLUS
 	SEMICOLON
 	STAR
+	EQUAL
+	EQUAL_EQUAL
 	EOF
 	INVALID
 )
