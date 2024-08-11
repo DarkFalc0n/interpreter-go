@@ -15,6 +15,11 @@ var TokenNames = []string {
 	"EQUAL_EQUAL",
 	"BANG",
 	"BANG_EQUAL",
+	"LESS",
+	"LESS_EQUAL",
+	"GREATER",
+	"GREATER_EQUAL",
+	"SLASH",
 	"EOF",
 	"INVALID",
 }
@@ -34,6 +39,11 @@ const (
 	EQUAL_EQUAL
 	BANG
 	BANG_EQUAL
+	LESS
+	LESS_EQUAL
+	GREATER
+	GREATER_EQUAL
+	SLASH
 	EOF
 	INVALID
 )

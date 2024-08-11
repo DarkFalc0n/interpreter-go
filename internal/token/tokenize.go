@@ -44,6 +44,28 @@ func Tokenize(fileContents []byte) int{
 				} else {
 					TokenList = append(TokenList, *NewToken(BANG, string(b), "null", line))
 				}
+			case '<':
+				if index + 1 < len(fileContents) && fileContents[index + 1] == '=' {
+					TokenList = append(TokenList, *NewToken(LESS_EQUAL, "<=", "null", line))
+					index++
+				} else {
+					TokenList = append(TokenList, *NewToken(LESS, string(b), "null", line))
+				}
+			case '>':
+				if index + 1 < len(fileContents) && fileContents[index + 1] == '=' {
+					TokenList = append(TokenList, *NewToken(GREATER_EQUAL, ">=", "null", line))
+					index++
+				} else {
+					TokenList = append(TokenList, *NewToken(GREATER, string(b), "null", line))
+				}
+			case '/':
+				if index + 1 < len(fileContents) && fileContents[index + 1] == '/' {
+					for fileContents[index] != '\n' {
+						index++
+					}
+				} else {
+					TokenList = append(TokenList, *NewToken(SLASH, string(b), "null", line))
+				}
 			case '\n':
 				line++
 			default:
