@@ -60,7 +60,7 @@ func Tokenize(fileContents []byte) int{
 				}
 			case '/':
 				if index + 1 < len(fileContents) && fileContents[index + 1] == '/' {
-					for fileContents[index] != '\n' && index < len(fileContents) {
+					for fileContents[index] != '\n' && index < len(fileContents) - 1 {
 						index++
 					}
 				} else {
