@@ -2,8 +2,6 @@ package token
 
 var TokenList = []Token{}
 
-var HasError bool = false
-
 func Tokenize(fileContents []byte) int{
 	var line int = 1
 	if len(fileContents) > 0 {
@@ -69,11 +67,20 @@ func Tokenize(fileContents []byte) int{
 				} else {
 					TokenList = append(TokenList, *NewToken(SLASH, string(b), "null", line))
 				}
+			case '"':
+				index++
+				var str string = GetString(&index, &fileContents, &line)
+				if TokenError == UNTERMINATED_STRING {					
+					ThrowUnterminatedStringError(line)
+				} else {
+					TokenList = append(TokenList, *NewToken(STRING, "\""+str+"\"", str, line))
+				}
 			case '\n':
 				line++
 			default:
 				//eliminate whitespaces
 				if (b != ' ' && b != '\t' && b != '\r') {
+					TokenError = UNEXPECTED_TOKEN
 					TokenList = append(TokenList, *NewToken(INVALID, string(b), "null", line))
 				}
 			}

@@ -35,7 +35,8 @@ func main() {
 	for _, t := range token.TokenList {
 		t.Print();
 	}
-	if token.HasError {
+	if token.TokenError != token.NONE {
 		os.Exit(65)
 	}
 }
+

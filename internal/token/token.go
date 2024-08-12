@@ -2,7 +2,6 @@ package token
 
 import (
 	"fmt"
-	"os"
 )
 
 type Token struct {
@@ -23,8 +22,7 @@ func NewToken(tokenType int, lexeme string, literal string, line int) *Token{
 
 func (t *Token) Print() {
 	if t.tokenType == INVALID {
-		HasError = true
-		fmt.Fprintln(os.Stderr, "[line " + fmt.Sprint(t.line) + "] Error: Unexpected character: " + t.lexeme)
+		ThrowUnexpectedTokenError(t.line, t.lexeme)
 		return
 	}
 	fmt.Println(TokenNames[t.tokenType] + " " + t.lexeme + " " + t.literal)

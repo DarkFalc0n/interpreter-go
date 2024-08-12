@@ -20,6 +20,7 @@ var TokenNames = []string {
 	"GREATER",
 	"GREATER_EQUAL",
 	"SLASH",
+	"STRING",
 	"EOF",
 	"INVALID",
 }
@@ -44,6 +45,7 @@ const (
 	GREATER
 	GREATER_EQUAL
 	SLASH
+	STRING
 	EOF
 	INVALID
 )
