@@ -28,6 +28,7 @@ func GetNumber(index *int, fileContents *[]byte, line *int) string {
 	}
 	if str[len(str) - 1] == '.' {
 		str = str[:len(str) - 1]
+		*index = *index - 1
 	}
 
 	return str
