@@ -22,9 +22,31 @@ var TokenNames = []string {
 	"SLASH",
 	"STRING",
 	"NUMBER",
+	"IDENTIFIER",
 	"EOF",
 	"INVALID",
 }
+
+
+var reservedKeywords = []string {
+	AND : "and",
+	CLASS : "class",
+	ELSE : "else",
+	FALSE : "false",
+	FOR : "for",
+	FUN : "fun",
+	IF : "if",
+	NIL : "nil",
+	OR : "or",
+	PRINT : "print",
+	RETURN : "return",
+	SUPER : "super",
+	THIS : "this",
+	TRUE : "true",
+	VAR : "var",
+	WHILE : "while",
+}
+
 
 const (
 	LEFT_PAREN = iota
@@ -48,6 +70,24 @@ const (
 	SLASH
 	STRING
 	NUMBER
+	IDENTIFIER	
 	EOF
 	INVALID
+	// reserved keywords
+	AND
+	CLASS
+	ELSE
+	FALSE
+	FOR
+	FUN
+	IF
+	NIL
+	OR
+	PRINT
+	RETURN
+	SUPER
+	THIS
+	TRUE
+	VAR
+	WHILE
 )

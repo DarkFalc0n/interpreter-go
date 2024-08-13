@@ -83,9 +83,17 @@ func Tokenize(fileContents []byte) int{
 				line++
 			default:
 				//handle numbers
-				if(isDigit(b)) {
+				if isDigit(b) {
 					var num string = GetNumber(&index, &fileContents, &line)
 					TokenList = append(TokenList, *NewToken(NUMBER, num, parseNumber(num), line))
+				} else if isAlpha(b) {
+					var str string = GetIdentifier(&index, &fileContents, &line)
+					var KEYWORD int = isReservedKeyword(str)
+					if KEYWORD == -1 {
+					TokenList = append(TokenList, *NewToken(IDENTIFIER, str, "null", line))
+					} else {
+						TokenList = append(TokenList, *NewToken(KEYWORD, str, "null", line))
+					}
 				} else if (b != ' ' && b != '\t' && b != '\r') {
 					TokenError = UNEXPECTED_TOKEN
 					TokenList = append(TokenList, *NewToken(INVALID, string(b), "null", line))
