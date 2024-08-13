@@ -1,6 +1,9 @@
 package token
 
-import "strings"
+import (
+	"strconv"
+	"strings"
+)
 
 func GetNumber(index *int, fileContents *[]byte, line *int) string {
 	var str string
@@ -35,8 +38,11 @@ func GetNumber(index *int, fileContents *[]byte, line *int) string {
 }
 
 func parseNumber(str string) string {
+	floatNum, _ := strconv.ParseFloat(str, 64)
+	str = strconv.FormatFloat(floatNum, 'f', -1, 64)
+	
 	if !strings.Contains(str, ".") {
-		return str + ".0"
+		str += ".0"
 	}
 	return str
 }
