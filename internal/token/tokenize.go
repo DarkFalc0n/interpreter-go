@@ -2,6 +2,10 @@ package token
 
 var TokenList = []Token{}
 
+func isDigit(b byte) bool {
+	return b >= '0' && b <= '9'
+}
+
 func Tokenize(fileContents []byte) int{
 	var line int = 1
 	if len(fileContents) > 0 {
@@ -78,8 +82,11 @@ func Tokenize(fileContents []byte) int{
 			case '\n':
 				line++
 			default:
-				//eliminate whitespaces
-				if (b != ' ' && b != '\t' && b != '\r') {
+				//handle numbers
+				if(isDigit(b)) {
+					var num string = GetNumber(&index, &fileContents, &line)
+					TokenList = append(TokenList, *NewToken(NUMBER, num, num, line))
+				} else if (b != ' ' && b != '\t' && b != '\r') {
 					TokenError = UNEXPECTED_TOKEN
 					TokenList = append(TokenList, *NewToken(INVALID, string(b), "null", line))
 				}

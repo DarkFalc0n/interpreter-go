@@ -25,5 +25,5 @@ func (t *Token) Print() {
 		ThrowUnexpectedTokenError(t.line, t.lexeme)
 		return
 	}
-	fmt.Println(TokenNames[t.tokenType] + " " + t.lexeme + " " + t.literal)
+	fmt.Println(TokenNames[t.tokenType] + " " + t.lexeme + " " + string(t.literal))
 }
