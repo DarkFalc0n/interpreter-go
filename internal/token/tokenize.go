@@ -85,7 +85,7 @@ func Tokenize(fileContents []byte) int{
 				//handle numbers
 				if(isDigit(b)) {
 					var num string = GetNumber(&index, &fileContents, &line)
-					TokenList = append(TokenList, *NewToken(NUMBER, num, num, line))
+					TokenList = append(TokenList, *NewToken(NUMBER, num, parseNumber(num), line))
 				} else if (b != ' ' && b != '\t' && b != '\r') {
 					TokenError = UNEXPECTED_TOKEN
 					TokenList = append(TokenList, *NewToken(INVALID, string(b), "null", line))

@@ -1,5 +1,7 @@
 package token
 
+import "strings"
+
 func GetNumber(index *int, fileContents *[]byte, line *int) string {
 	var str string
 	var didScanDecimal bool = false
@@ -23,6 +25,17 @@ func GetNumber(index *int, fileContents *[]byte, line *int) string {
 			*index = i
 			break
 		}
+	}
+	if str[len(str) - 1] == '.' {
+		str = str[:len(str) - 1]
+	}
+
+	return str
+}
+
+func parseNumber(str string) string {
+	if !strings.Contains(str, ".") {
+		return str + ".0"
 	}
 	return str
 }
